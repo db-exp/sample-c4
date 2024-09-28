@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate-diagrams:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-devel
 
     steps:
       - name: Checkout repository
@@ -23,7 +23,9 @@ jobs:
           distribution: "adopt"
 
       - name: Install PlantUML
-        run: sudo apt-get install plantuml
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install plantuml
 
       - name: Generate Diagrams
         run: |
