@@ -24,9 +24,6 @@ jobs:
 
       - name: Install PlantUML
         run: |
-          # Prerequisites: "curl"
-          # apt-get update && apt-get install -y curl
-          # apt-get update && apt-get install -y curl
           sudo wget https://raw.githubusercontent.com/riboseinc/plantuml-install/main/ubuntu.sh 
           sudo bash ubuntu.sh 
 
