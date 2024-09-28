@@ -27,14 +27,15 @@ jobs:
           # Prerequisites: "curl"
           # apt-get update && apt-get install -y curl
           # apt-get update && apt-get install -y curl
-          sudo wget https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-mit-1.2024.7.jar
+          sudo wget https://raw.githubusercontent.com/riboseinc/plantuml-install/main/ubuntu.sh 
+          sh ubuntu.sh 
 
       - name: Generate Diagrams
         run: |
-          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/context/Context.puml
-          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/container/Container.puml
-          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/component/Component.puml
-          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/code/Code.puml
+          plantuml diagrams/context/*.puml
+          plantuml diagrams/container/*.puml
+          plantuml diagrams/component/*.puml
+          plantuml diagrams/code/*.puml
 
       - name: Commit Diagrams
         run: |
