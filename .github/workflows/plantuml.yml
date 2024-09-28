@@ -36,6 +36,7 @@ jobs:
           plantuml diagrams/container/*.puml
           plantuml diagrams/component/*.puml
           plantuml diagrams/code/*.puml
+          sudo rm ubuntu.sh
 
       - name: Commit Diagrams
         run: |
