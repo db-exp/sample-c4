@@ -28,7 +28,7 @@ jobs:
           # apt-get update && apt-get install -y curl
           # apt-get update && apt-get install -y curl
           sudo wget https://raw.githubusercontent.com/riboseinc/plantuml-install/main/ubuntu.sh 
-          sudo sh ubuntu.sh 
+          sudo bash ubuntu.sh 
 
       - name: Generate Diagrams
         run: |
