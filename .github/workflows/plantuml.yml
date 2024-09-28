@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate-diagrams:
-    runs-on: ubuntu-devel
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -24,15 +24,17 @@ jobs:
 
       - name: Install PlantUML
         run: |
-          sudo apt-get update -y
-          sudo apt-get install plantuml
+          # Prerequisites: "curl"
+          # apt-get update && apt-get install -y curl
+          # apt-get update && apt-get install -y curl
+          sudo wget https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-mit-1.2024.7.jar
 
       - name: Generate Diagrams
         run: |
-          plantuml diagrams/context/*.puml
-          plantuml diagrams/container/*.puml
-          plantuml diagrams/component/*.puml
-          plantuml diagrams/code/*.puml
+          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/context/Context.puml
+          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/container/Container.puml
+          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/component/Component.puml
+          java -Djava.awt.headless=true -jar plantuml-mit-1.2024.7.jar ./diagrams/code/Code.puml
 
       - name: Commit Diagrams
         run: |
